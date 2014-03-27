@@ -62,7 +62,7 @@ $(document).bind('pageinit', function() {
 	
     $( "#button2" ).bind( "click", function(event, ui) {
       var qo = $("#text2").val();
-      alert("Click "+q);
+      alert("Click "+qo);
       var jsonUrls = "http://localhost:3001/quote/"+qo;
       alert("Fetching result from "+jsonUrls);
       $.get(jsonUrls, function(data) {
