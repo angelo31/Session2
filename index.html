@@ -59,11 +59,13 @@ $(document).bind('pageinit', function() {
   });
   
   $( "#button2" ).bind( "click", function(event, ui) {
+      var q = $("#text1").val();
+      alert("Click "+q);
       alert("Posting a new quote");
-      var jsonUrl = "http://localhost:3001/quote";
+      var jsonUrl = "http://localhost:3001/quote"+q;
       var newQuote = { "author" : "foo", "text" : "some text" };
       $.post(jsonUrl,newQuote, function(data) {
-        alert("Added " + data.author + " " + data.text);
+        alert("Added " + data.author + " said "+data.text+"</b></p>")
       }, 'json');
     });
 
