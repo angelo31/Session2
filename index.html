@@ -24,7 +24,7 @@
         <input type="submit" value="Submit Button" id="button1" />
 		
 		<label for="text-2">Add a new quote:</label>
-		<input name="text-2" id="text2" value="1" type="text">
+		<input name="text-2" id="text2" value="some text" type="text">
 		 <input type="submit" value="Submit Button" id="button2" />
 		
 
@@ -60,14 +60,12 @@ $(document).bind('pageinit', function() {
   
 
 	
-    $( "#button2" ).bind( "click", function(event, ui) {
-      var qo = $("#text2").val();
-      alert("Click "+qo);
-      var jsonUrls = "http://localhost:3001/quote/"+qo;
-      alert("Fetching result from "+jsonUrls);
-      $.get(jsonUrls, function(data) {
-        alert(data.author);
-        $("#result").html("<p><b>"+data.author+" said "+data.text+"</b></p>")
+  $( "#button2" ).bind( "click", function(event, ui) {
+      alert("Posting a new quote");
+      var jsonUrl = "http://localhost:3001/quote";
+      var newQuote = { "author" : "foo", "text" : "some text" };
+      $.post(jsonUrl,newQuote, function(data) {
+        alert("Added " + data.author + " " + data.text);
       }, 'json');
     });
 
