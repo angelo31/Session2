@@ -61,11 +61,11 @@ $(document).bind('pageinit', function() {
 
 	
     $( "#button2" ).bind( "click", function(event, ui) {
-      var qo = $("#text1").val();
+      var qo = $("#text2").val();
       alert("Click "+q);
       var jsonUrls = "http://localhost:3001/quote/"+qo;
       alert("Fetching result from "+jsonUrls);
-      $.get(jsonUrl, function(data) {
+      $.get(jsonUrls, function(data) {
         alert(data.author);
         $("#result").html("<p><b>"+data.author+" said "+data.text+"</b></p>")
       }, 'json');
