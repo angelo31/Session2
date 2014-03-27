@@ -58,12 +58,13 @@ $(document).bind('pageinit', function() {
     }, 'json');
   });
   
-  $( "#button2" ).bind( "click", function(event, ui) {
-      var s = $("#text1").val();
+
+	
+    $( "#button2" ).bind( "click", function(event, ui) {
+      var qo = $("#text1").val();
       alert("Click "+q);
-      alert("Posting a new quote");
-      var jsonUrl = "http://localhost:3001/quote"+s;
-      alert("Fetching result from "+jsonUrl);
+      var jsonUrls = "http://localhost:3001/quote/"+qo;
+      alert("Fetching result from "+jsonUrls);
       $.get(jsonUrl, function(data) {
         alert(data.author);
         $("#result").html("<p><b>"+data.author+" said "+data.text+"</b></p>")
